@@ -3,8 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <title>Mirador + TEI Plugin</title>
+  <!-- React本体 -->
+  <script src="https://unpkg.com/react/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom/umd/react-dom.production.min.js"></script>
+
+  <!-- Mirador本体 -->
   <script src="https://unpkg.com/mirador@3.2.0/dist/mirador.min.js"></script>
+
+  <!-- カスタムプラグイン -->
   <script src="./plugin/teiPlugin.js" defer></script>
+
   <style>
     body, html { margin: 0; height: 100%; }
     #viewer { height: 100vh; }
