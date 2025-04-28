@@ -1,5 +1,5 @@
 (function waitForMirador() {
-  if (!window.Mirador || !window.Mirador.viewerInstance) {
+  if (!window.Mirador) {
     setTimeout(waitForMirador, 100);
     return;
   }
@@ -31,25 +31,45 @@
 
   const ConnectedTeiPanel = connect(mapStateToProps)(TeiPanel);
 
+  // プラグインとして登録
+  const plugin = [
+    {
+      target: 'WindowSidebarButtons',
+      mode: 'add',
+      component: (props) => {
+        return createElement('div', {
+          style: { width: '100%', textAlign: 'center', padding: '8px' },
+          onClick: () => props.showPanel('teiPanel'),
+        }, '📄');
+      },
+      mapDispatchToProps: { showPanel: Mirador.actions.showPanel },
+      mapStateToProps: (state, { windowId }) => ({ windowId }),
+    },
+    {
+      target: 'WindowSidebarPanels',
+      mode: 'add',
+      component: (props) => {
+        return createElement(ConnectedTeiPanel, { windowId: props.windowId });
+      },
+      mapStateToProps: (state, { windowId }) => ({ windowId }),
+      options: {
+        panel: 'teiPanel',
+        icon: '<svg viewBox="0 0 100 100"><text x="10" y="60" font-size="80">文</text></svg>',
+        label: '翻刻',
+      }
+    }
+  ];
+
   window.Mirador.viewer({
     id: "viewer",
     windows: [{
       manifestId: "./sample-manifest.json",
       canvasIndex: 0,
     }],
-    window: {
-      defaultSideBarPanel: 'teiPanel',
-      sideBarPanels: ['info', 'annotations', 'teiPanel'],
-    },
-    panels: {
-      teiPanel: {
-        icon: '<svg viewBox="0 0 100 100"><text x="10" y="60" font-size="80">文</text></svg>',
-        panel: ConnectedTeiPanel,
-        title: '翻刻',
-      }
-    },
     workspaceControlPanel: {
       enabled: true,
-    }
+    },
+    sideBarPanel: 'teiPanel',
+    plugins: plugin,
   });
 })();
