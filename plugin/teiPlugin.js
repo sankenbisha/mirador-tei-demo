@@ -77,6 +77,6 @@
       enabled: true,
     },
     sideBarPanel: 'teiPanel',
-    plugins: plugin,  // ★ここでpluginを渡す！
+    plugins: [plugin], // ★ここ！配列にして渡す！！
   });
 })();
