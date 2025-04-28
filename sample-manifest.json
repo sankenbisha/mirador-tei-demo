@@ -11,41 +11,20 @@
           "@id": "./canvas/p1",
           "@type": "sc:Canvas",
           "label": "ページ 1",
-          "height": 1000,
-          "width": 800,
+          "height": 3024,
+          "width": 4032,
           "images": [
             {
               "@type": "oa:Annotation",
               "motivation": "sc:painting",
               "resource": {
-                "@id": "https://iiif.harvardartmuseums.org/manifests/object/299843/Canvas/p1/full/full/0/default.jpg",
+                "@id": "https://ids.lib.harvard.edu/ids/iiif/25286610/full/full/0/default.jpg",
                 "@type": "dctypes:Image",
                 "format": "image/jpeg",
-                "height": 1000,
-                "width": 800
+                "height": 3024,
+                "width": 4032
               },
               "on": "./canvas/p1"
-            }
-          ]
-        },
-        {
-          "@id": "./canvas/p2",
-          "@type": "sc:Canvas",
-          "label": "ページ 2",
-          "height": 1000,
-          "width": 800,
-          "images": [
-            {
-              "@type": "oa:Annotation",
-              "motivation": "sc:painting",
-              "resource": {
-                "@id": "https://iiif.harvardartmuseums.org/manifests/object/299843/Canvas/p2/full/full/0/default.jpg",
-                "@type": "dctypes:Image",
-                "format": "image/jpeg",
-                "height": 1000,
-                "width": 800
-              },
-              "on": "./canvas/p2"
             }
           ]
         }
