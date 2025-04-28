@@ -1,14 +1,27 @@
 (function waitForMirador() {
-  if (!window.Mirador) {
+  if (!window.Mirador || !window.Mirador.viewerInstance) {
     setTimeout(waitForMirador, 100);
     return;
   }
 
   const { createElement, useState, useEffect } = React;
-  const connect = Mirador.connect;
 
-  const TeiPanel = ({ canvasIndex }) => {
+  const TeiPanel = ({ windowId }) => {
     const [teiHtml, setTeiHtml] = useState("読み込み中...");
+    const [canvasIndex, setCanvasIndex] = useState(0);
+
+    useEffect(() => {
+      const store = window.Mirador.viewerInstance.store;
+      const unsubscribe = store.subscribe(() => {
+        const state = store.getState();
+        const windows = Object.values(state.windows || {});
+        if (windows.length > 0) {
+          const idx = windows[0]?.canvasIndex ?? 0;
+          setCanvasIndex(idx);
+        }
+      });
+      return () => unsubscribe();
+    }, []);
 
     useEffect(() => {
       fetch("./tei-pages.json")
@@ -24,12 +37,6 @@
       dangerouslySetInnerHTML: { __html: teiHtml }
     });
   };
-
-  const mapStateToProps = (state, { windowId }) => ({
-    canvasIndex: state.windows[windowId]?.canvasIndex || 0
-  });
-
-  const ConnectedTeiPanel = connect(mapStateToProps)(TeiPanel);
 
   // プラグインとして登録
   const plugin = [
@@ -49,7 +56,7 @@
       target: 'WindowSidebarPanels',
       mode: 'add',
       component: (props) => {
-        return createElement(ConnectedTeiPanel, { windowId: props.windowId });
+        return createElement(TeiPanel, { windowId: props.windowId });
       },
       mapStateToProps: (state, { windowId }) => ({ windowId }),
       options: {
