@@ -1,5 +1,5 @@
 (function waitForMirador() {
-  if (!window.Mirador || !window.Mirador.viewerInstance) {
+  if (!window.Mirador) {
     setTimeout(waitForMirador, 100);
     return;
   }
@@ -38,14 +38,14 @@
     });
   };
 
-  // プラグインとして登録
   const plugin = [
     {
       target: 'WindowSidebarButtons',
       mode: 'add',
       component: (props) => {
-        return createElement('div', {
-          style: { width: '100%', textAlign: 'center', padding: '8px' },
+        return createElement('button', {
+          type: 'button',
+          style: { width: '100%', padding: '8px', fontSize: '20px' },
           onClick: () => props.showPanel('teiPanel'),
         }, '📄');
       },
@@ -67,7 +67,7 @@
     }
   ];
 
-  window.Mirador.viewer({
+  window.Mirador.viewerInstance = window.Mirador.viewer({
     id: "viewer",
     windows: [{
       manifestId: "./sample-manifest.json",
@@ -77,6 +77,6 @@
       enabled: true,
     },
     sideBarPanel: 'teiPanel',
-    plugins: plugin,
+    plugins: plugin,  // ★ここでpluginを渡す！
   });
 })();
