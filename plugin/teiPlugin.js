@@ -4,39 +4,52 @@
     return;
   }
 
-  // Mirador起動後に実行
-  const store = window.Mirador.viewerInstance.store;
+  const { createElement, useState, useEffect } = React;
+  const connect = Mirador.connect;
 
-  // 翻刻パネルを作成
-  const teiPanel = document.createElement("div");
-  teiPanel.id = "teiPanel";
-  teiPanel.style.padding = "1rem";
-  teiPanel.style.overflowY = "auto";
-  teiPanel.style.height = "100%";
-  teiPanel.innerHTML = "翻刻を読み込み中...";
-  
-  const sidePanel = document.createElement("div");
-  sidePanel.appendChild(teiPanel);
-  document.getElementById("viewer").appendChild(sidePanel);
+  const TeiPanel = ({ canvasIndex }) => {
+    const [teiHtml, setTeiHtml] = useState("読み込み中...");
 
-  // 翻刻テキスト更新関数
-  function updateTeiText(canvasIndex) {
-    fetch("./tei-pages.json")
-      .then(res => res.json())
-      .then(data => {
-        const html = data.pages[canvasIndex] || "翻刻なし";
-        teiPanel.innerHTML = html;
-      });
-  }
+    useEffect(() => {
+      fetch("./tei-pages.json")
+        .then(res => res.json())
+        .then(data => {
+          const html = data.pages[canvasIndex] || "翻刻なし";
+          setTeiHtml(html);
+        });
+    }, [canvasIndex]);
 
-  // Miradorの状態変化を監視
-  store.subscribe(() => {
-    const state = store.getState();
-    const windows = Object.values(state.windows || {});
-    const canvasIndex = windows[0]?.canvasIndex ?? 0;
-    updateTeiText(canvasIndex);
+    return createElement("div", {
+      style: { padding: "1rem", overflowY: "auto", height: "100%" },
+      dangerouslySetInnerHTML: { __html: teiHtml }
+    });
+  };
+
+  const mapStateToProps = (state, { windowId }) => ({
+    canvasIndex: state.windows[windowId]?.canvasIndex || 0
   });
 
-  // 初回ロード
-  updateTeiText(0);
+  const ConnectedTeiPanel = connect(mapStateToProps)(TeiPanel);
+
+  window.Mirador.viewer({
+    id: "viewer",
+    windows: [{
+      manifestId: "./sample-manifest.json",
+      canvasIndex: 0,
+    }],
+    window: {
+      defaultSideBarPanel: 'teiPanel',
+      sideBarPanels: ['info', 'annotations', 'teiPanel'],
+    },
+    panels: {
+      teiPanel: {
+        icon: '<svg viewBox="0 0 100 100"><text x="10" y="60" font-size="80">文</text></svg>',
+        panel: ConnectedTeiPanel,
+        title: '翻刻',
+      }
+    },
+    workspaceControlPanel: {
+      enabled: true,
+    }
+  });
 })();
