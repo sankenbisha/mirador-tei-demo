@@ -1,55 +1,42 @@
-(function waitForReact() {
-  if (typeof React === 'undefined' || typeof ReactDOM === 'undefined') {
-    setTimeout(waitForReact, 100);
+(function waitForMirador() {
+  if (!window.Mirador || !window.Mirador.viewerInstance) {
+    setTimeout(waitForMirador, 100);
     return;
   }
 
-  const { createElement } = React;
-  const connect = Mirador.connect; // ここを修正
+  // Mirador起動後に実行
+  const store = window.Mirador.viewerInstance.store;
 
-  const TeiPanel = ({ canvasIndex }) => {
-    const [teiHtml, setTeiHtml] = React.useState("読み込み中...");
+  // 翻刻パネルを作成
+  const teiPanel = document.createElement("div");
+  teiPanel.id = "teiPanel";
+  teiPanel.style.padding = "1rem";
+  teiPanel.style.overflowY = "auto";
+  teiPanel.style.height = "100%";
+  teiPanel.innerHTML = "翻刻を読み込み中...";
+  
+  const sidePanel = document.createElement("div");
+  sidePanel.appendChild(teiPanel);
+  document.getElementById("viewer").appendChild(sidePanel);
 
-    React.useEffect(() => {
-      fetch("./tei-pages.json")
-        .then(res => res.json())
-        .then(data => {
-          const html = data.pages[canvasIndex] || "翻刻なし";
-          setTeiHtml(html);
-        });
-    }, [canvasIndex]);
+  // 翻刻テキスト更新関数
+  function updateTeiText(canvasIndex) {
+    fetch("./tei-pages.json")
+      .then(res => res.json())
+      .then(data => {
+        const html = data.pages[canvasIndex] || "翻刻なし";
+        teiPanel.innerHTML = html;
+      });
+  }
 
-    return createElement("div", {
-      style: { padding: "1rem", overflowY: "auto", height: "100%" },
-      dangerouslySetInnerHTML: { __html: teiHtml }
-    });
-  };
-
-  const mapStateToProps = (state, { windowId }) => ({
-    canvasIndex: state.windows[windowId].canvasIndex
+  // Miradorの状態変化を監視
+  store.subscribe(() => {
+    const state = store.getState();
+    const windows = Object.values(state.windows || {});
+    const canvasIndex = windows[0]?.canvasIndex ?? 0;
+    updateTeiText(canvasIndex);
   });
 
-  const ConnectedTeiPanel = connect(mapStateToProps)(TeiPanel);
-
-  window.Mirador.viewer({
-    id: "viewer",
-    windows: [{
-      manifestId: "./sample-manifest.json",
-      canvasIndex: 0,
-    }],
-    window: {
-      defaultSideBarPanel: 'teiPanel',
-      sideBarPanel: ['info', 'annotations', 'teiPanel'],
-    },
-    workspaceControlPanel: {
-      enabled: true,
-    },
-    panels: {
-      teiPanel: {
-        icon: '<svg viewBox="0 0 100 100"><text x="10" y="60" font-size="80">文</text></svg>',
-        panel: ConnectedTeiPanel,
-        title: '翻刻',
-      }
-    }
-  });
+  // 初回ロード
+  updateTeiText(0);
 })();
