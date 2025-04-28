@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>Mirador + TEI Plugin (Fixed with plugins option)</title>
+  <title>Mirador + TEI Plugin (Plugin Only Start)</title>
 
   <!-- React本体 -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.14.0/umd/react.production.min.js"></script>
@@ -30,20 +30,6 @@
 <body>
   <div id="viewer"></div>
 
-  <script>
-    window.addEventListener('DOMContentLoaded', function() {
-      window.Mirador.viewer({
-        id: "viewer",
-        windows: [{
-          manifestId: "./sample-manifest.json",
-          canvasIndex: 0,
-        }],
-        workspaceControlPanel: {
-          enabled: true,
-        },
-        plugins: [],  // ★これを必ず入れる！
-      });
-    });
-  </script>
+  <!-- ★Mirador起動コードはここには書かない！ -->
 </body>
 </html>
