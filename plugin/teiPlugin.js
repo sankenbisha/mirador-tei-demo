@@ -5,7 +5,7 @@
   }
 
   const { createElement } = React;
-  const { connect } = Mirador;
+  const connect = Mirador.connect; // ここを修正
 
   const TeiPanel = ({ canvasIndex }) => {
     const [teiHtml, setTeiHtml] = React.useState("読み込み中...");
