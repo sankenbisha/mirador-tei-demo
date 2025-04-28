@@ -1,4 +1,9 @@
-(function() {
+(function waitForReact() {
+  if (typeof React === 'undefined' || typeof ReactDOM === 'undefined') {
+    setTimeout(waitForReact, 100);
+    return;
+  }
+
   const { createElement } = React;
   const { connect } = Mirador;
 
