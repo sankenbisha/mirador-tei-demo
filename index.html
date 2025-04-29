@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>Mirador + TEI Plugin (Plugin Only Start)</title>
+  <title>Mirador + 翻刻 (Annotation版)</title>
 
   <!-- React本体 -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.14.0/umd/react.production.min.js"></script>
@@ -19,9 +19,6 @@
   <!-- Mirador本体 -->
   <script src="https://unpkg.com/mirador@3.2.0/dist/mirador.min.js"></script>
 
-  <!-- カスタムプラグイン（TEIプラグイン） -->
-  <script src="./plugin/teiPlugin.js" defer></script>
-
   <style>
     body, html { margin: 0; height: 100%; }
     #viewer { height: 100vh; }
@@ -30,6 +27,19 @@
 <body>
   <div id="viewer"></div>
 
-  <!-- ★Mirador起動コードはここには書かない！ -->
+  <script>
+    window.addEventListener('DOMContentLoaded', function() {
+      window.Mirador.viewer({
+        id: "viewer",
+        windows: [{
+          manifestId: "./sample-manifest.json",
+          canvasIndex: 0,
+        }],
+        workspaceControlPanel: {
+          enabled: true,
+        }]
+      });
+    });
+  </script>
 </body>
 </html>
