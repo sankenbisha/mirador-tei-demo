@@ -1,0 +1,17 @@
+{
+  "@context": "http://iiif.io/api/presentation/2/context.json",
+  "@id": "./annotations/bunko14_c0091_p0003.json",
+  "@type": "sc:AnnotationList",
+  "resources": [
+    {
+      "@type": "oa:Annotation",
+      "motivation": "oa:commenting",
+      "resource": {
+        "@type": "dctypes:Text",
+        "format": "text/plain",
+        "chars": "同村作一ゝ同\n思ふ子に気をつけられて\n御一とま致し故階を降り\n来台御母被遊御病\n気とかにて枕におよりな\nされての御緒も朕まもに\n恐れん出候草後御求候\n子いかにやうかゞひ上候さ\nさはどりの君より聞ける\n御存候様に候昨夜のも\n御気あるめされてかに\n其序言の葉ありし\nよしま空有とがたき\n御ころと感佩致し候\nよきに御聞こえ上げうと\n祈久し\n可有来度来は来詣の人家来\nなにことにたり人もふぞど\nまたおとなふ人有之十二時\nよきともなりしにいかへに生\nし戸専爰のおひを也"
+      },
+      "on": "./canvas/bunko14_c0091_p0003"
+    }
+  ]
+}

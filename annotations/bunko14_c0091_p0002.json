@@ -1,0 +1,17 @@
+{
+  "@context": "http://iiif.io/api/presentation/2/context.json",
+  "@id": "./annotations/bunko14_c0091_p0002.json",
+  "@type": "sc:AnnotationList",
+  "resources": [
+    {
+      "@type": "oa:Annotation",
+      "motivation": "oa:commenting",
+      "resource": {
+        "@type": "dctypes:Text",
+        "format": "text/plain",
+        "chars": "□□□□□□□□□□□□□□□□□□□□\n御気つかまずマクウ〳〵と\nおされ\n法に歌客子\nいねむり\nそむる国\nとう〳〵我いて\nしまいたる国\nとやゝなるをに立はひり如何\nなるゆめをや見られけむ\nしりえねどふすはかたはら\nにて夫遊轟とお互て閉士\nの者誰いたし時を売し\n思ふ子に気をつけられて\n御一とま致し故階を降り"
+      },
+      "on": "./canvas/bunko14_c0091_p0002"
+    }
+  ]
+}

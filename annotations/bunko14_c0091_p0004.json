@@ -1,0 +1,17 @@
+{
+  "@context": "http://iiif.io/api/presentation/2/context.json",
+  "@id": "./annotations/bunko14_c0091_p0004.json",
+  "@type": "sc:AnnotationList",
+  "resources": [
+    {
+      "@type": "oa:Annotation",
+      "motivation": "oa:commenting",
+      "resource": {
+        "@type": "dctypes:Text",
+        "format": "text/plain",
+        "chars": "なにことりいせんそやそふ\nまたおとなふ人有之十二時\nよきともなりしにいかへに生\nも御伝授の秘法をは\nじめてコクリ〳〵と致し\n候やうのも、御宅に得たる\n負債有とう〳〵払下候歟と\n小座御一笑より置候\nふさ中はいろ〳〵と御\n厄介手取来り有五郎たき\n仕合せと存し候此上とても\n御手紙十五にてもの\n御米孝給はりゝそ上\nねがひまゐらするは此事に\n御母被様の所へし候\n御目捨退残されて\n一剤もはや上御令快\nかことも祈りまらはし"
+      },
+      "on": "./canvas/bunko14_c0091_p0004"
+    }
+  ]
+}

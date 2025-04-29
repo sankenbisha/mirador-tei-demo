@@ -1,0 +1,17 @@
+{
+  "@context": "http://iiif.io/api/presentation/2/context.json",
+  "@id": "./annotations/bunko14_c0091_p0001.json",
+  "@type": "sc:AnnotationList",
+  "resources": [
+    {
+      "@type": "oa:Annotation",
+      "motivation": "oa:commenting",
+      "resource": {
+        "@type": "dctypes:Text",
+        "format": "text/plain",
+        "chars": "岡田\n紙わたるはいづれにくきは\nなきから池のてふしたる\nをり可愛ゆきもの御座候\n御ことりにす及ふまじく\n全尾が一番にかろ〳〵と笑\nちいだし候へどあなた孫も\n御気つかますマクレ〳〵と\nおされ\n法に歌客子\nいねむり\nそむる国"
+      },
+      "on": "./canvas/bunko14_c0091_p0001"
+    }
+  ]
+}

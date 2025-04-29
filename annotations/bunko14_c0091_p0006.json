@@ -1,6 +1,6 @@
 {
   "@context": "http://iiif.io/api/presentation/2/context.json",
-  "@id": "./annotations/p1-anno-list.json",
+  "@id": "./annotations/bunko14_c0091_p0006.json",
   "@type": "sc:AnnotationList",
   "resources": [
     {
@@ -9,9 +9,9 @@
       "resource": {
         "@type": "dctypes:Text",
         "format": "text/plain",
-        "chars": "これはサンプル翻刻テキストです。"
+        "chars": "ナケ\n薄田徳蔵\nわが著続明治文学史に収至"
       },
-      "on": "./canvas/p1"
+      "on": "./canvas/bunko14_c0091_p0006"
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "@context": "http://iiif.io/api/presentation/2/context.json",
-  "@id": "./annotations/p1-anno-list.json",
+  "@id": "./annotations/bunko14_c0091_p0007.json",
   "@type": "sc:AnnotationList",
   "resources": [
     {
@@ -9,9 +9,9 @@
       "resource": {
         "@type": "dctypes:Text",
         "format": "text/plain",
-        "chars": "これはサンプル翻刻テキストです。"
+        "chars": "薄田泣菫戯画入書仕同\n角田温角田治泉"
       },
-      "on": "./canvas/p1"
+      "on": "./canvas/bunko14_c0091_p0007"
     }
   ]
 }
