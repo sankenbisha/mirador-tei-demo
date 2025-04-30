@@ -1,1 +1,202 @@
-{"@context": "http://iiif.io/api/presentation/2/context.json", "@type": "sc:Manifest", "@id": "./sample-manifest.json", "label": "古典籍サンプル", "sequences": [{"@type": "sc:Sequence", "canvases": [{"@id": "./canvas/p1", "@type": "sc:Canvas", "label": "ページ1", "height": 1000, "width": 800, "images": [{"@type": "oa:Annotation", "motivation": "sc:painting", "resource": {"@id": "https://ids.lib.harvard.edu/ids/iiif/299843/full/full/0/default.jpg", "@type": "dctypes:Image", "format": "image/jpeg", "height": 1000, "width": 800}, "on": "./canvas/p1"}], "otherContent": [{"@id": "./annotations/p1-anno-list.json", "@type": "sc:AnnotationList"}]}]}]}
+{
+  "@context": "http://iiif.io/api/presentation/2/context.json",
+  "@type": "sc:Manifest",
+  "@id": "./sample-manifest.json",
+  "label": "古典籍 翻刻サンプル",
+  "sequences": [
+    {
+      "@type": "sc:Sequence",
+      "canvases": [
+        {
+          "@id": "./canvas/bunko14_c0091_p0001",
+          "@type": "sc:Canvas",
+          "label": "ページ 1",
+          "height": 1000,
+          "width": 800,
+          "images": [
+            {
+              "@type": "oa:Annotation",
+              "motivation": "sc:painting",
+              "resource": {
+                "@id": "./images/bunko14_c0091_p0001.jpg",
+                "@type": "dctypes:Image",
+                "format": "image/jpeg",
+                "height": 1000,
+                "width": 800
+              },
+              "on": "./canvas/bunko14_c0091_p0001"
+            }
+          ],
+          "otherContent": [
+            {
+              "@id": "./annotations/bunko14_c0091_p0001.json",
+              "@type": "sc:AnnotationList"
+            }
+          ]
+        },
+        {
+          "@id": "./canvas/bunko14_c0091_p0002",
+          "@type": "sc:Canvas",
+          "label": "ページ 2",
+          "height": 1000,
+          "width": 800,
+          "images": [
+            {
+              "@type": "oa:Annotation",
+              "motivation": "sc:painting",
+              "resource": {
+                "@id": "./images/bunko14_c0091_p0002.jpg",
+                "@type": "dctypes:Image",
+                "format": "image/jpeg",
+                "height": 1000,
+                "width": 800
+              },
+              "on": "./canvas/bunko14_c0091_p0002"
+            }
+          ],
+          "otherContent": [
+            {
+              "@id": "./annotations/bunko14_c0091_p0002.json",
+              "@type": "sc:AnnotationList"
+            }
+          ]
+        },
+        {
+          "@id": "./canvas/bunko14_c0091_p0003",
+          "@type": "sc:Canvas",
+          "label": "ページ 3",
+          "height": 1000,
+          "width": 800,
+          "images": [
+            {
+              "@type": "oa:Annotation",
+              "motivation": "sc:painting",
+              "resource": {
+                "@id": "./images/bunko14_c0091_p0003.jpg",
+                "@type": "dctypes:Image",
+                "format": "image/jpeg",
+                "height": 1000,
+                "width": 800
+              },
+              "on": "./canvas/bunko14_c0091_p0003"
+            }
+          ],
+          "otherContent": [
+            {
+              "@id": "./annotations/bunko14_c0091_p0003.json",
+              "@type": "sc:AnnotationList"
+            }
+          ]
+        },
+        {
+          "@id": "./canvas/bunko14_c0091_p0004",
+          "@type": "sc:Canvas",
+          "label": "ページ 4",
+          "height": 1000,
+          "width": 800,
+          "images": [
+            {
+              "@type": "oa:Annotation",
+              "motivation": "sc:painting",
+              "resource": {
+                "@id": "./images/bunko14_c0091_p0004.jpg",
+                "@type": "dctypes:Image",
+                "format": "image/jpeg",
+                "height": 1000,
+                "width": 800
+              },
+              "on": "./canvas/bunko14_c0091_p0004"
+            }
+          ],
+          "otherContent": [
+            {
+              "@id": "./annotations/bunko14_c0091_p0004.json",
+              "@type": "sc:AnnotationList"
+            }
+          ]
+        },
+        {
+          "@id": "./canvas/bunko14_c0091_p0005",
+          "@type": "sc:Canvas",
+          "label": "ページ 5",
+          "height": 1000,
+          "width": 800,
+          "images": [
+            {
+              "@type": "oa:Annotation",
+              "motivation": "sc:painting",
+              "resource": {
+                "@id": "./images/bunko14_c0091_p0005.jpg",
+                "@type": "dctypes:Image",
+                "format": "image/jpeg",
+                "height": 1000,
+                "width": 800
+              },
+              "on": "./canvas/bunko14_c0091_p0005"
+            }
+          ],
+          "otherContent": [
+            {
+              "@id": "./annotations/bunko14_c0091_p0005.json",
+              "@type": "sc:AnnotationList"
+            }
+          ]
+        },
+        {
+          "@id": "./canvas/bunko14_c0091_p0006",
+          "@type": "sc:Canvas",
+          "label": "ページ 6",
+          "height": 1000,
+          "width": 800,
+          "images": [
+            {
+              "@type": "oa:Annotation",
+              "motivation": "sc:painting",
+              "resource": {
+                "@id": "./images/bunko14_c0091_p0006.jpg",
+                "@type": "dctypes:Image",
+                "format": "image/jpeg",
+                "height": 1000,
+                "width": 800
+              },
+              "on": "./canvas/bunko14_c0091_p0006"
+            }
+          ],
+          "otherContent": [
+            {
+              "@id": "./annotations/bunko14_c0091_p0006.json",
+              "@type": "sc:AnnotationList"
+            }
+          ]
+        },
+        {
+          "@id": "./canvas/bunko14_c0091_p0007",
+          "@type": "sc:Canvas",
+          "label": "ページ 7",
+          "height": 1000,
+          "width": 800,
+          "images": [
+            {
+              "@type": "oa:Annotation",
+              "motivation": "sc:painting",
+              "resource": {
+                "@id": "./images/bunko14_c0091_p0007.jpg",
+                "@type": "dctypes:Image",
+                "format": "image/jpeg",
+                "height": 1000,
+                "width": 800
+              },
+              "on": "./canvas/bunko14_c0091_p0007"
+            }
+          ],
+          "otherContent": [
+            {
+              "@id": "./annotations/bunko14_c0091_p0007.json",
+              "@type": "sc:AnnotationList"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
