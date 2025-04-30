@@ -2,7 +2,7 @@
   "@context": "http://iiif.io/api/presentation/2/context.json",
   "@type": "sc:Manifest",
   "@id": "./sample-manifest.json",
-  "label": "古典籍 翻刻サンプル",
+  "label": "古典籍 翻刻サンプル（アノテーション対応）",
   "sequences": [
     {
       "@type": "sc:Sequence",
